@@ -52,12 +52,14 @@ function getComputerChoice(){
             return "You lose " + computerSelection + " beats " + playerSelection + "!";
         }
         
+
     }
 
     for (i = 0; i < roundCounter; i++){
+        console.log("you chose " + getPlayerChoice() + "!");
+        console.log("the computer chose " + getComputerChoice()) + "!";
         console.log(playRound(playerSelection, computerSelection));
     }
-
 }
 
 playGame()
