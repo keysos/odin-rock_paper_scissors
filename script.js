@@ -3,19 +3,22 @@ let roundCounter;
 
 function playGame(){
     while (true){
-        roundCounter = prompt("How many rounds do you wanna play?")
+        roundCounter = parseInt(prompt("How many rounds do you wanna play?"));
         if (isValidRoundCounter(roundCounter)){
             break;
         }
     }
-    
-    for (i = 0; i < roundCounter; i++){
+
+    for ( let i = 0; i < roundCounter; i++){
         const player = playerSelection();
         computerSelection();
         const result = checkWinner();
         alert(result);
     }
 }
+    function isValidRoundCounter(rounds) {
+    return !isNaN(rounds) && rounds > 0;
+    }
 
 
     function playerSelection(){
@@ -59,6 +62,8 @@ function playGame(){
     }
 
 }
+
+
 
 playGame();
 
