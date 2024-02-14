@@ -1,70 +1,66 @@
+let computer;
+let roundCounter;
 
 function playGame(){
-
-//Mapping of what beats what//
-whatBeatsWhat = {
-    rock: "scissors",
-    paper: "rock",
-    scissors: "paper",
-}
-
-
-//Variables//
-
-const rpsItens = ["rock", "paper", "scissors"];
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-const roundCounter = 5;
-
-//Get the player choice and makes it lower case, while to verify if it's valid//
-
-function getPlayerChoice(){
-    let testInput = false;
-    while( testInput == false){
-        let playerChoice = prompt("Choose between rock, paper or scissors!").toLowerCase();
-        if(playerChoice == "rock" || "paper" || "scissors"){
-            testInput = true
-            return playerChoice;
-        } else {
-            alert("That is not an option! try again");
-            playerChoice = prompt("Choose between rock, paper or scissors!").toLowerCase();
-            testInput = false
+    while (true){
+        roundCounter = prompt("How many rounds do you wanna play?")
+        if (isValidRoundCounter(roundCounter)){
+            break;
         }
     }
-   
-    }
-
-//Get the computer random choice by using the rpsItens array's length//
-
-function getComputerChoice(){
-    randomizeChoice = Math.floor(Math.random() * rpsItens.length)
-    return (rpsItens[randomizeChoice])
-} 
-
-//Play a round, compare the variables to determine the result//
-
-    function playRound(playerSelection, computerSelection){
-        if (playerSelection === computerSelection){
-            return "It is a tie!";
-        } if (whatBeatsWhat[playerSelection] === computerSelection ) {
-           return "You win, " + playerSelection + " beats " + computerSelection + "!";
-        } else {
-            return "You lose " + computerSelection + " beats " + playerSelection + "!";
-        }
-        
-
-    }
-
+    
     for (i = 0; i < roundCounter; i++){
-        console.log("you chose " + getPlayerChoice() + "!");
-        console.log("the computer chose " + getComputerChoice()) + "!";
-        console.log(playRound(playerSelection, computerSelection));
+        const player = playerSelection();
+        computerSelection();
+        const result = checkWinner();
+        alert(result);
     }
 }
 
-playGame()
 
+    function playerSelection(){
+    let player = "";
+    while(true){
+        player = prompt("Choose between rock, paper or scissors").toLowerCase();
+        if(player === "rock" || player === "paper" || player === "scissors"){
+            return player;
+        } else {
+            alert("This option is invalid, try again!");
+        }
+        }  
+    }
 
+    function computerSelection(){
+     
+        const randNum = Math.floor(Math.random()*3) + 1;
+
+        switch(randNum){
+            case 1:
+                computer = "rock";
+                break;
+            case 2:
+                computer = "paper";
+                break;
+            case 3:
+                computer = "scissors";
+                break;    
+        }
+    }
+
+    function checkWinner(player, computer){
+        if (player == computer){
+            return "It's a tie!";
+        } else if (computer == "rock") {
+            return (player == "paper") ? "You Win!" : "You Lose!"
+        } else if (computer == "paper") {
+            return (player == "scissors") ? "You Win!" : "You Lose!"
+        } else if (computer == "scissors") {
+            return (player == "rock") ? "You Win!" : "You Lose!"
+    }
+
+}
+
+playGame();
 
 
 
