@@ -12,7 +12,7 @@ function playGame(){
     for ( let i = 0; i < roundCounter; i++){
         const player = playerSelection();
         computerSelection();
-        const result = checkWinner();
+        const result = checkWinner(player, computer);
         alert(result);
     }
 }
