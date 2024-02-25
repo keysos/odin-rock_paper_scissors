@@ -6,14 +6,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Micro+5&display=swap" rel="stylesheet">
+    
+    
 </head>
 
 <body>  
     
+    <div class="header">
+        <h1>Rock Paper Scissors</h1>
+    </div>
     
-    <h1>Rock Paper Scissors</h1>
 
     <div class="choiceBtn">
         <button id="rock" data-choice="rock"></button>
@@ -32,6 +39,19 @@
     <div class="scoreDisplay">Computer Score:
         <span id="computerScoreDisplay">0</span>
     </div>
+    
+    <div id="winnerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="winnerText"></p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Copyright Odin Rock Paper Scissors - Keysos 2024</p>
+    </div>
+  
 
     <script src="script.js"></script>  
 
