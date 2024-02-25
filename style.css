@@ -12,11 +12,11 @@ h1 {
     color: rgb(31, 31, 31);
 }
 
-.choices {
+.choiceBtn {
     margin-bottom: 30px;
 }
 
-.choices button{
+.choiceBtn button{
     
     font-size: 7.5rem;
     min-width: 180px;
@@ -28,7 +28,7 @@ h1 {
     transition: background-color 0.5s ease;
 }
 
-.choices button:hover{
+.choiceBtn button:hover{
     background-color: hsl(200, 100%, 70%);
 }
 
@@ -64,6 +64,6 @@ h1 {
     color: green;
 }
 
-.redText, #playerScoreDisplay{
+.redText, #computerScoreDisplay{
     color: red;
 }

@@ -15,10 +15,10 @@
     
     <h1>Rock Paper Scissors</h1>
 
-    <div class="choices">
-        <button id="rock" onclick="playGame('rock')"></button>
-        <button id="paper" onclick="playGame('paper')"></button>
-        <button id="scissors" onclick="playGame('scissors')"></button>
+    <div class="choiceBtn">
+        <button id="rock" data-choice="rock"></button>
+        <button id="paper" data-choice="paper"></button>
+        <button id="scissors" data-choice="scissors"></button>
     </div> 
 
     <div id="playerDisplay">PLAYER:</div>
@@ -26,11 +26,11 @@
     <div id="resultDisplay">IT'S A TIE!</div>
 
     <div class="scoreDisplay">Player Score:
-        <span id="playerScoreDisplay>">0</span>
+        <span id="playerScoreDisplay">0</span>
     </div>
-
+    
     <div class="scoreDisplay">Computer Score:
-        <span id="computerScoreDisplay>">0</span>
+        <span id="computerScoreDisplay">0</span>
     </div>
 
     <script src="script.js"></script>  
