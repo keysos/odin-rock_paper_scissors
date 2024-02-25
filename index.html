@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +9,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>      
-    <script src="script.js"></script>
+
+<body>  
+    
+    
+    <h1>Rock Paper Scissors</h1>
+
+    <div class="choices">
+        <button id="rock" onclick="playGame('rock')"></button>
+        <button id="paper" onclick="playGame('paper')"></button>
+        <button id="scissors" onclick="playGame('scissors')"></button>
+    </div> 
+
+    <div id="playerDisplay">PLAYER:</div>
+    <div id="computerDisplay">COMPUTER:</div>
+    <div id="resultDisplay">IT'S A TIE!</div>
+
+    <div class="scoreDisplay">Player Score:
+        <span id="playerScoreDisplay>">0</span>
+    </div>
+
+    <div class="scoreDisplay">Computer Score:
+        <span id="computerScoreDisplay>">0</span>
+    </div>
+
+    <script src="script.js"></script>  
+
 </body>
+
 </html>

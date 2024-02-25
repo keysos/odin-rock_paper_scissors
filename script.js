@@ -1,71 +1,51 @@
-let computer;
-let roundCounter;
+const playerDisplay = document.getElementById("playerDisplay")
+const computerDisplay = document.getElementById("computerDisplay")
+const resultDisplay = document.getElementById("resultDisplay")
+const playerScoreDisplay = document.getElementById("playerScoreDisplay")
+const computerScoreDisplay = document.getElementById("computerScoreDisplay")
+const options = ["rock", "paper", "scissors"]
+let playerScore = 0;
+let computerScore = 0;
 
-function playGame(){
-    while (true){
-        roundCounter = parseInt(prompt("How many rounds do you wanna play?"));
-        if (isValidRoundCounter(roundCounter)){
+
+function playGame(playerChoice){
+
+    const computerChoice = options[Math.floor(Math.random()*3)];
+    let result = ""
+        
+    if(playerChoice === computerChoice){
+        result = "IT'S A TIE!"
+    }else{
+        switch(playerChoice){
+            case "rock":
+                result = (computerChoice === "scissors") ? "YOU WIN!": "YOU LOSE!";
+                break;
+            case "paper":
+                result = (computerChoice === "rock") ? "YOU WIN!": "YOU LOSE!";
+                break;
+            case "scissors":
+                result = (computerChoice === "paper") ? "YOU WIN!": "YOU LOSE!";
+                break;
+            }
+    }
+    
+    playerDisplay.textContent = `PLAYER: ${playerChoice}`;
+    computerDisplay.textContent = `COMPUTER: ${computerChoice}`;
+    resultDisplay.textContent = result;
+
+    resultDisplay.classList.remove("greenText", "redText")
+
+    switch(result){
+        case "YOU WIN!":
+            resultDisplay.classList.add("greenText");
+            playerScore++;
+            playerScoreDisplay.textContent = playerScore;
             break;
-        }
-    }
-
-    for ( let i = 0; i < roundCounter; i++){
-        const player = playerSelection();
-        computerSelection();
-        const result = checkWinner(player, computer);
-        alert(result);
-    }
-}
-    function isValidRoundCounter(rounds) {
-    return !isNaN(rounds) && rounds > 0;
-    }
-
-
-    function playerSelection(){
-    let player = "";
-    while(true){
-        player = prompt("Choose between rock, paper or scissors").toLowerCase();
-        if(player === "rock" || player === "paper" || player === "scissors"){
-            return player;
-        } else {
-            alert("This option is invalid, try again!");
-        }
-        }  
-    }
-
-    function computerSelection(){
-     
-        const randNum = Math.floor(Math.random()*3) + 1;
-
-        switch(randNum){
-            case 1:
-                computer = "rock";
-                break;
-            case 2:
-                computer = "paper";
-                break;
-            case 3:
-                computer = "scissors";
-                break;    
-        }
-    }
-
-    function checkWinner(player, computer){
-        if (player == computer){
-            return "It's a tie!";
-        } else if (computer == "rock") {
-            return (player == "paper") ? "You Win!" : "You Lose!"
-        } else if (computer == "paper") {
-            return (player == "scissors") ? "You Win!" : "You Lose!"
-        } else if (computer == "scissors") {
-            return (player == "rock") ? "You Win!" : "You Lose!"
+        case "YOU LOSE!":
+            resultDisplay.classList.add("redText");
+            computerScore++;
+            computerScoreDisplay.textContent = computerScore;
+            break;
     }
 
 }
-
-
-
-playGame();
-
-
-
